@@ -21,8 +21,10 @@ function Product() {
   const handleUpload = async () => {
     try {
       const formData = new FormData();
+      
+      
       formData.append("img", img);
-
+      console.log(formData);
       const res = await axios.post(
         config.apiPath + "/product/upload",
         formData,
@@ -48,9 +50,15 @@ function Product() {
   //save data to database
   const handleSave = async () => {
     try {
-      product.img = await handleUpload();
+
       product.price = parseInt(product.price);
       product.cost = parseInt(product.cost);
+      
+      if (!isNaN(product.price) && !isNaN(product.cost)) {
+        product.img = await handleUpload();
+    }
+ 
+     
 
       let res;
 
@@ -88,6 +96,8 @@ function Product() {
       });
     }
   };
+
+
   const fetchData = async () => {
     try {
       const res = await axios.get(
@@ -313,6 +323,7 @@ function Product() {
           />
         </div>
         <div className="mt-3">
+          <div className="mb-3">  {showImage(product)} </div>
           <div>ภาพสินค้า</div>
           {/* selectedfile is functions */}
           <input
