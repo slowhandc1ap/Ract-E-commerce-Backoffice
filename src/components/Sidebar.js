@@ -120,10 +120,10 @@ function Sidebar() {
                 </Link>
               </li>
               <li class="nav-item">
-                <a href="pages/gallery.html" class="nav-link">
-                  <i class="nav-icon far fa-image"></i>
-                  <p>Gallery</p>
-                </a>
+                <Link to ="/billSale" class="nav-link">
+                <i class="nav-icon fa fa-coins"></i>
+                  <p>รายงานยอดขาย</p>
+                </Link>
               </li>
               <li class="nav-item">
                 <a href="pages/kanban.html" class="nav-link">
